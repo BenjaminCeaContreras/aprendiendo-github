@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800;900&display=swap');
+/* =========================================
+   1. VARIABLES (Colores del Cliente)
+   ========================================= */
+:root {
+    --color-primario: #2563eb; 
+    --color-secundario: #1e293b;
+    --color-fondo: #f8fafc;
+    --color-texto: #334155;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================================
+   2. RESET (Limpieza de estilos de fábrica)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+
+/* =========================================
+   3. LAYOUT (Estructura general)
+   ========================================= */
+.logo-contenedor {
+    margin-bottom: 50px; /* Espacio entre el logo y el título */
+    width: 100%;
+    display: flex;
+    justify-content: flex; /* ESTO MUEVE EL LOGO A LA DERECHA */
+    padding-right: 50px;
+}
+.logo-principal {
+    width: 45%;            /* Ocupará el 80% del ancho de la pantalla */
+    max-width: 1200px;     /* Pero no crecerá más de 1200px para no pixelarse */
+    height: auto;
+    filter: drop-shadow(8px 8px 15px rgba(0, 0, 0, 1.0)); /* Sombra sutil para que resalte del fondo */
+}
+
+#grupo {
+    /* Ruta de tu imagen */
+    background-image: url("../assets/img/fondo.jpeg"); 
+    
+    /* Ajustes para que se vea perfecta */
+    background-size: cover;       /* La imagen cubre toda la sección sin estirarse */
+    background-position: center;  /* Centra la foto */
+    background-attachment: scroll; /* Cambia a 'fixed' si quieres efecto Parallax */
+
+    width: 100%;
+    min-height: 100vh;
+    
+    /* Opcional: un borde superior para separar de la sección anterior */
+    border-top: 5px solid #0b0808;
+}
+#grupo h1 {
+font-family: 'Inter', sans-serif;
+    font-size: 4rem;             /* Ajusta según necesites */
+    font-weight: 900;            /* El peso más grueso disponible */
+    color: white;
+    line-height: 1.1;            /* Para que las líneas estén juntas como en la foto */
+    letter-spacing: -0.04em;     /* Esto compacta las letras hacia la izquierda */
+    
+    /* Si quieres el borde sutil que mencionaste antes, pero formal: */
+    -webkit-text-stroke: 1px rgba(0,0,0,0.1); 
+    
+}
+h2 {
+    font-size: 2.2rem;     /* Tamaño considerable */
+    color: #f5f5f5;        /* El mismo negro de tus bordes */
+    text-align: center;    /* Centrado como tus fotos */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 800;      /* Bien negrita */
+}
+
+h3 {
+    font-size: 2.2rem;     /* Tamaño considerable */
+    color: #0b0808;        /* El mismo negro de tus bordes */
+    text-align: center;    /* Centrado como tus fotos */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 800;      /* Bien negrita */
+}
+section {
+    min-height: 100vh; 
+    padding: 80px 10%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* Esto es vital para que el header sticky no tape los títulos */
+    scroll-margin-top: 80px; 
+}
+
+header {
+    background: white;
+    padding: 1rem 5%;
+    position: sticky; 
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-secundario);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+}
+
+/* --- INDICADOR ACTIVO --- 
+   Esta es la parte que "enciende" el color azul al scrollear */
+nav a:hover,
+nav a.active {
+    color: var(--color-primario) !important;
+    border-bottom: 2px solid var(--color-primario) !important;
+}
+
+img{
+    max-width: 100%; /* Pero no crezcas más de 800px para no pixelarte */
+    height: auto;     /* Mantiene la proporción para no verse estirada */
+    display: block;
+    object-fit: cover;
+}
+.galeria {
+    display: flex;       /* Activa el modo de caja flexible */
+    flex-wrap: wrap;    /* Si no caben, las pasa a la fila de abajo */
+    gap: 10px;          /* Espacio de separación entre cada imagen */
+    justify-content: center; /* Centra las imágenes en la página */
+    padding: 20px;
+}
+
+.tarjeta-foto {
+    margin: 0;          /* Elimina márgenes por defecto del navegador */
+    flex: 0 1 250px;    /* No crecen, pueden achicarse, base de 250px */
+    text-align: center;
+}
+
+.tarjeta-foto img {
+    width: 100%;        /* La imagen ocupa el ancho de la tarjeta (250px) */
+    height: 250px;      /* Altura fija para que todas se vean iguales */
+    object-fit: cover;  /* Mantiene la proporción sin deformar */
+}
+
+.tarjeta-foto-formas {
+    margin: 0;          /* Elimina márgenes por defecto del navegador */
+    flex: 0 1 500px;    /* No crecen, pueden achicarse, base de 250px */
+    text-align: center;
+}
+.tarjeta-foto-formas img { 
+    object-fit: contain; /* Esto evita que la imagen se deforme */
+    border: 10px solid #0b0808;
+    max-width: 90%;
+}
+
+#procedimiento {
+    text-align: center; /* Centra títulos y párrafos básicos */
+}
+
+.texto-formateado {
+    white-space: pre-wrap;
+    display: inline-block; /* Permite que el bloque se centre como texto */
+    text-align: left;      /* Mantiene el texto alineado a la izquierda DENTRO del bloque centrado */
+    max-width: 800px;      /* Evita que las líneas sean demasiado largas para leer */
+    margin: 0 auto;        /* Centra el bloque horizontalmente */
+}
+.texto-grande {
+    font-size: 22px;
+    font-weight: 500;
+}
+/* =========================================
+   4. COMPONENTES (Botones, Tarjetas)
+   ========================================= */
+.btn-principal {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--color-primario);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+/* EL GRUPO (Contenedor de las 3 columnas) */
+.grid-formas{
+    display: flex;
+    flex-direction: column; /* Alinea los elementos hacia abajo */
+    align-items: center;    /* Centra las imágenes */
+    gap: 50px;              /* Espacio entre cada gráfico */
+    width: 100%;
+    max-width: 900px;       /* Ajusta este ancho según prefieras */
+    margin: 40px auto; 
+}
+
+/* CADA GRÁFICO (El bloque individual con su texto e imagen) */
+.formas-item{
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+/* LA IMAGEN DENTRO DEL ÍTEM */
+.formas-item img{
+    width: 100%;            /* La imagen se estira al ancho del contenedor */
+    height: auto;           /* No se deforma */
+    border: 8px solid #0b0808; /* Tu borde negro */
+}
+
+/* EL TEXTO DENTRO DEL ÍTEM (Figcaption) */
+.formas-item figcaption {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* 5. Estilo de los textos (figcaption) */
+.tarjeta-foto-formas figcaption {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    font-weight: 500;
+}
+
+/* Bonus: Ajuste para móviles */
+@media (max-width: 992px) {
+    .grid-formas {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-formas {
+        grid-template-columns: 1fr; /* 1 columna en celulares */
+    }
+}
+
+.grid-audios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 5px;
+    width: 100%;
+    margin-top: 40px;
+    max-width: 1200px;
+    align-items: start; /* Evita que las tarjetas se estiren si una tiene más audios que otra */
+}
+
+/* Esto centra el texto sobre el audio */
+.audio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.seccion-audio {
+    display: flex;
+    flex-direction: column; /* Esto pone un audio bajo el otro dentro de la columna */
+    flex-shrink: 0;
+    gap: 25px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo sutil para diferenciar la sección */
+    border-radius: 15px;
+}
+
+.audio-item p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+.vacio {
+    /* Usamos la variable que definiste al principio de tu CSS */
+    background-color: var(--color-fondo); 
+    padding: 25px;
+    border-radius: 12px;
+    
+    /* Quitamos la sombra para que no se note que hay una tarjeta ahí */
+    box-shadow: none; 
+    border: none;
+    
+    /* Esto es importante: si no tiene contenido, 
+       necesita una altura mínima para ocupar el espacio */
+    min-height: 200px; 
+    
+    /* Evita que se vea cualquier texto si accidentalmente escribes algo */
+    visibility: hidden; 
+}
+.tarjeta {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/*##########################*/
+/* EL CONTENEDOR */
+.contenedor-horizontal {
+    display: flex;
+    flex-direction: row;
+   justify-content: space-around;/* Importante para que no se amontonen */
+    align-items: center; /* Alinea los elementos por la base */
+    width: 100%;
+    max-width: 1200px;
+    gap: 200px;
+    margin: 40px auto;
+    justify-content: center;
+}
+.contenedor-horizontal-2 {
+    display: flex;
+    flex-direction: row;
+   justify-content: space-around;/* Importante para que no se amontonen */
+    align-items: center; /* Alinea los elementos por la base */
+    width: 100%;
+    max-width: 1200px;
+    gap: 200px;
+    margin: 40px auto;
+    justify-content: center;
+}
+/* TAMAÑO PARA LOS GRÁFICOS (Figuras) */
+.test-imagen {
+    flex: 0 0 700px;      /* Ajusta este valor (300px) para cambiar el tamaño de los gráficos */
+    margin: 0;
+    text-align: center;
+}
+.test-imagen-2 {
+    flex: 0 0 900px;
+    margin: 0;
+    text-align: center;
+}
+.test-imagen-2 img {
+    width: 100%;          /* La imagen siempre llena los 300px del contenedor */
+    height: auto;
+    border: 8px solid #0b0808;
+}
+
+.test-imagen img {
+    width: 100%;          /* La imagen siempre llena los 300px del contenedor */
+    height: auto;
+    border: 8px solid #0b0808;
+}
+
+/* TAMAÑO PARA EL BLOQUE DE AUDIO */
+.audio-item {
+    flex: 0 0 25%;         /* Ajusta este % según el tamaño que quieras para el audio */
+    display: flex;         /* Activa flexbox interno */
+    flex-direction: column;/* Apila los elementos en vertical */
+    align-items: center;   /* Centra el texto y el reproductor */
+    justify-content: center;
+    text-align: center;
+}
+
+.audio-item audio {
+    margin: 0 0 12px 0;    /* 12px de espacio abajo para separar del audio */
+    font-size: 1rem;       
+    line-height: 1.2;      
+    width: 100%;
+    font-weight: 500;       /* El reproductor se ajusta al ancho del bloque */
+}
+
+.audio-item p {
+    width: 100%;
+    height: 35px;
+}
+
+/* =========================================
+   5. RESPONSIVE (Para celulares)
+   ========================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+}
+/* =========================================
+   TEST DE SECCIONES (Colores para la prueba)
+   ========================================= */
+
+/* Aquí usamos el selector de ID (#) */
+#grupo { background-color: #e0f2fe; }
+#equipo { background-color: #ffedd5; }
+#procedimiento { background-color: #dcfce7; }
+#fotos { background-color: #3bb5e1; }

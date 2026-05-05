@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es-CL">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyecto universitario Benjamin Cea.">
+    <title>Respuesta de inpulsos en salas - ACUS099 Procesamiento digital de señales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#grupo">Grupo</a></li>
+                <li><a href="#equipo">Equipo utilizado</a></li>
+                <li><a href="#procedimiento">Procedimiento</a></li>
+                <li><a href="#fotos">Fotos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="grupo">
+            <div class="logo-contenedor">
+                <img src="assets/img/logo.png" alt="Logo Proyecto" class="logo-principal">
+            </div>
+            <h1>Respuesta de inpulsos en salas - ACUS099 Procesamiento digital de señales</h1>
+            <h2>Benjamín Cea - José Vera</h2>
+        </section>
+        
+        <section id="equipo">
+            <h3> Equipo utilizado<h3>
+
+            <div class="galeria">
+                <figure class="tarjeta-foto">
+                    <img src="assets/img/atril_de_micrófono.jpg" alt="Atril de microfono" class="img-galeria">
+                    <figcaption>Atril de microfono</figcaption>
+                </figure>
+            
+                <figure class="tarjeta-foto">
+                    <img src="assets/img/chas_chas.jpg" alt="" class="img-galeria">
+                    <figcaption>Chas chas</figcaption>
+                </figure>
+            
+                <figure class="tarjeta-foto">
+                    <img src="assets/img/cable_xlr.jpg" alt="" class="img-galeria">
+                    <figcaption>Cable xlr</figcaption>
+                </figure>
+
+                <figure class="tarjeta-foto">
+                    <img src="assets/img/computador.jpg.png" alt="" class="img-galeria">
+                    <figcaption>Computador</figcaption>
+                </figure>
+
+                <figure class="tarjeta-foto">
+                    <img src="assets/img/daw.jpg" alt="" class="img-galeria">
+                    <figcaption>DAW</figcaption>
+                </figure>
+
+                <figure class="tarjeta-foto">
+                    <img src="assets/img/globo.png" alt="" class="img-galeria">
+                    <figcaption>Globo</figcaption>
+                </figure>
+
+                <figure class="tarjeta-foto">
+                    <img src="assets/img/interfaz_de_audio.jpg" alt="" class="img-galeria">
+                    <figcaption>Interfaz de audio</figcaption>
+                </figure>
+                
+                <figure class="tarjeta-foto">
+                    <img src="assets/img/microfono_behringer_ecm_8k.jpeg" alt="" class="img-galeria">
+                    <figcaption>Microfono Behringer ecm 8000</figcaption>
+                </figure>
+            </div>
+        </section>
+        
+        <section id="procedimiento">
+            <h3>Procedimiento</h3>
+                <pre class="texto-formateado texto-grande">
+<strong>Conceptos clave</strong>
+<strong>CONVOLUCIÓN:</strong> La convolución es una operación matemática que describe cómo una señal se transforma al pasar por un sistema. En acústica, ese “sistema” puede ser una sala, un micrófono, un altavoz o cualquier medio que afecte el sonido.
+
+<strong>Ejemplo:</strong> Tienes un sonido original (por ejemplo, una palmada). Ese sonido entra en un espacio (una iglesia, una habitación pequeña, un túnel). El espacio añade ecos, reverberaciones y cambios de timbre. La convolución es la forma matemática de combinar el sonido original con la “huella acústica” del espacio.
+
+<strong>ISO 3382-2 sección 2</strong>
+La ISO 3382-2 sección 2 asegura que cuando alguien diga “esta sala tiene un tiempo de reverberación de 0,7 segundos”, ese valor se haya obtenido con un método estandarizado, usando equipo y condiciones comparables. Es la base para diseñar y evaluar espacios donde la inteligibilidad del habla es lo más importante.
+
+<strong>Procedimiento según la norma</strong>
+1. Generar el impulso acústico con una fuente omnidireccional (globo).
+2. Registrar la respuesta con micrófonos calibrados en varias posiciones.
+3. Procesar digitalmente la señal para obtener la curva de decaimiento.
+4. Calcular parámetros aplicando fórmulas estandarizadas.
+5. Reportar resultados en tablas y gráficas, siguiendo el formato ISO.
+<strong>Ubicaciones y fuentes a estudiar</strong>
+Para este caso se realizó la respuesta impulso (RI) de tres salas distintas, siendo el primer lugar una sala reverberante, el segundo el hall de la sala reverberante, y el ultimo, el laboratorio del instituto de acústica. Tres lugares con características y fines distintos. Previo a esto se grabaron 3 audios distintos en una sala anecoica, una voz, un instrumento, y la vos e instrumentos juntos. Estos audios serian los puestos a prueba a ser convolucionados.
+
+<strong>Cadena de audio</strong>
+        <figure class="test-imagen">
+            <img src="assets/img/Diagrama.png" alt="Voz">
+        </figure>
+
+<strong>Procesamiento y análisis de datos</strong>
+Como bien se comentó al principio, al momento de realizar las RI se realizaron varias grabaciones de las cuales solo fue seleccionada una en estos casos para cada sala. Posteriormente lo primero que se realizó fue un etiquetado de audios para un mayor orden visual y velocidad de trabajo. Después del etiquetado procedemos a realizar la obtención de las señales convolucionadas y sus gráficos correspondientes, obteniendo un detalle gráfico y auditivo de cada señal trabajada mediante un código en Python.
+</pre>
+        </section>
+
+        <section id="fotos">
+            <h3>Pre-convolución</h3>
+            <div class="contenedor-horizontal">
+                <figure class="test-imagen">
+                    <img src="assets/img/voz_original.png" alt="Voz">
+                    <figcaption>Voz original</figcaption>
+                </figure>
+            
+                <div class="seccion-audio">
+                    <p>Voz original</p>
+                    <audio controls>
+                        <source src="assets/media/voz_original.wav" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <figure class="test-imagen">
+                    <img src="assets/img/voz_original_imagen.jpeg" alt="Ambos">
+                    <figcaption>Voz original</figcaption>
+                </figure>
+            </div>
+
+
+            <div class="contenedor-horizontal">
+                <figure class="test-imagen">
+                    <img src="assets/img/instrumento_original.png" alt="ambos">
+                    <figcaption>Instrumento original</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <p>Instrumento original</p>
+                    <audio controls>
+                        <source src="assets/media/instrumento.wav" type="audio/mpeg">
+                    </audio>
+                </div>
+                <figure class="test-imagen">
+                    <img src="assets/img/instrumento_imagen.jpeg" alt="ambos">
+                    <figcaption>Instrumento original</figcaption>
+                </figure>
+            </div>
+
+            <div class="contenedor-horizontal">
+                <figure class="test-imagen">
+                    <img src="assets/img/voz_e_instrumento_original.png" alt="ambos">
+                    <figcaption>Voz e instrumento original</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <p>Voz e instrumento original</p>
+                    <audio controls>
+                        <source src="assets/media/voz_y_instrumento.wav" type="audio/mpeg">
+                    </audio>
+                </div>
+                <figure class="test-imagen">
+                    <img src="assets/img/voz_e_instrumento_imagen.jpeg" alt="ambos">
+                    <figcaption>Voz e instrumento original</figcaption>
+                </figure>
+            </div>
+        <h3>Respuestas de impulso</h3>
+            <div class="contenedor-horizontal">
+                <figure class="test-imagen">
+                    <img src="assets/img/ri_reverberante.png" alt="ambos">
+                    <figcaption>Sala reverberante</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <p>Respuesta impulso sala reverberante</p>
+                    <audio controls>
+                        <source src="assets/media/ri_reverberante.wav" type="audio/mpeg">
+                    </audio>
+                </div>
+                <figure class="test-imagen">
+                    <img src="assets/img/ri_reverberante_imagen.jpeg" alt="ambos">
+                    <figcaption>Sala reverberante</figcaption>
+                </figure>
+            </div>
+
+            <div class="contenedor-horizontal">
+                <figure class="test-imagen">
+                    <img src="assets/img/ri_sala_1.png" alt="ambos">
+                    <figcaption>Sala 1 - hall sala reverberante</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <p>Respuesta impulso sala 1 - hall sala reverberante</p>
+                    <audio controls>
+                        <source src="assets/media/ri_sala_1.wav" type="audio/mpeg">
+                    </audio>
+                </div>
+                <figure class="test-imagen">
+                    <img src="assets/img/sala_1_imagen.jpeg" alt="ambos">
+                    <figcaption>Sala reverberante</figcaption>
+                </figure>
+            </div>
+
+            <div class="contenedor-horizontal">
+                <figure class="test-imagen">
+                    <img src="assets/img/ri_sala_2.png" alt="ambos">
+                    <figcaption>Sala 2 - laboratorio de acustica</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <p>Impulso sala 2 - laboratorio de acustica</p>
+                    <audio controls>
+                        <source src="assets/media/ri_sala_2.wav" type="audio/mpeg">
+                    </audio>
+                </div>
+                <figure class="test-imagen">
+                    <img src="assets/img/sala_2_imagen.jpeg" alt="ambos">
+                    <figcaption>Sala reverberante</figcaption>
+                </figure>
+            </div>
+
+
+        <h3>Convolución</h3>
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/voz_convolucionada_reverberante_comparativa.png" alt="ambos">
+                    <figcaption>Voz convolucionada sala 1 - hall sala reverberante</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Voz original</p>
+                        <audio controls>
+                            <source src="assets/media/voz_original.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Voz convolucionada sala reverberante</p>
+                        <audio controls>
+                            <source src="assets/media/voz_convolucionada_reverberante.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/voz_convolucionada_sala_1_comparativa.png" alt="ambos">
+                    <figcaption>Voz convolucionada sala 1 - hall sala reverberante</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Voz original</p>
+                        <audio controls>
+                            <source src="assets/media/voz_original.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Voz convolucionada sala 1 - hall sala reverberante</p>
+                        <audio controls>
+                            <source src="assets/media/voz_convolucionada_sala_1.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/voz_convolucionada_sala_2_comparativa.png" alt="ambos">
+                    <figcaption>Voz convolucionada sala 2 - laboratorio de acustica</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Voz original</p>
+                        <audio controls>
+                            <source src="assets/media/voz_original.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Voz convolucionada sala 2 - laboratorio de acustica</p>
+                        <audio controls>
+                            <source src="assets/media/voz_convolucionada_sala_2.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/instrumento_convolucionado_reverberante_comparativa.png" alt="ambos">
+                    <figcaption>Instrumento convolucionado sala reverberante</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Instrumento original</p>
+                        <audio controls>
+                            <source src="assets/media/instrumento.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Instrumento convolucionada sala reverberante</p>
+                        <audio controls>
+                            <source src="assets/media/instrumento_convolucionado_reverberante.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/instrumento_convolucionado_sala_1_comparativa.png" alt="ambos">
+                    <figcaption>Instrumento convolucionado sala 1 - hall sala reverberante</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Instrumento original</p>
+                        <audio controls>
+                            <source src="assets/media/instrumento.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Instrumento convolucionada sala 1 - hall sala reverberante</p>
+                        <audio controls>
+                            <source src="assets/media/instrumento_convolucionado_sala_1.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/instrumento_convolucionado_sala_2_comparativa.png" alt="ambos">
+                    <figcaption>Instrumento convolucionado sala 2 - laboratorio de acustica</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Instrumento original</p>
+                        <audio controls>
+                            <source src="assets/media/instrumento.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Instrumento convolucionada sala 2 - laboratorio de acustica</p>
+                        <audio controls>
+                            <source src="assets/media/instrumento_convolucionado_sala_2.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/voz_e_intrumento_convolucionada_reverberante_comparativa.png" alt="ambos">
+                    <figcaption>Voz e instrumento convolucionado sala reverberante</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Voz e instrumento original</p>
+                        <audio controls>
+                            <source src="assets/media/voz_y_instrumento.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Voz e instrumento convolucionado sala reverberante</p>
+                        <audio controls>
+                            <source src="assets/media/voz_e_instrumento_convolucionado_reverberante.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/voz_e_intrumento_convolucionada_sala_1_comparativa.png" alt="ambos">
+                    <figcaption>Voz e instrumento convolucionado sala 1 - hall sala reverberante</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Voz e instrumento original</p>
+                        <audio controls>
+                            <source src="assets/media/voz_y_instrumento.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Voz e instrumento convolucionado sala 1 - hall sala reverberante</p>
+                        <audio controls>
+                            <source src="assets/media/voz_e_instrumento_convolucionado_sala_1.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-horizontal-2">
+                <figure class="test-imagen-2">
+                    <img src="assets/img/voz_e_intrumento_convolucionada_sala_2_comparativa.png" alt="ambos">
+                    <figcaption>Voz e instrumento convolucionado sala 2 - laboratorio de acustica</figcaption>
+                </figure>
+                <div class="seccion-audio">
+                    <div class="audio-item">
+                        <p>Voz e instrumento original</p>
+                        <audio controls>
+                            <source src="assets/media/voz_y_instrumento.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <p>Voz e instrumento convolucionado sala 2 - laboratorio de acustica</p>
+                        <audio controls>
+                            <source src="assets/media/voz_e_instrumento_convolucionado_sala_2.wav" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Benjamin cea. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Seleccionamos todos los elementos de audio de la página
+        const audios = document.querySelectorAll('audio');
+
+        audios.forEach(audio => {
+          // Escuchamos el evento 'play' (cuando se le da play a uno)
+          audio.addEventListener('play', () => {
+            // Recorremos todos los audios y pausamos los que NO son el que acaba de empezar
+            audios.forEach(otroAudio => {
+              if (otroAudio !== audio) {
+                otroAudio.pause();
+                otroAudio.currentTime = 0; // Opcional: Reinicia el audio al principio
+              }
+            });
+          });
+        });
+    </script>
+</body>
+
+</html>
