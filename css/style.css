@@ -320,12 +320,12 @@ img{
 .contenedor-horizontal {
     display: flex;
     flex-direction: row;
-   justify-content: space-around;/* Importante para que no se amontonen */
-    align-items: center; /* Alinea los elementos por la base */
+   justify-content: space-around;
+    align-items: center;
     width: 100%;
     max-width: 1200px;
-    gap: 200px;
-    margin: 40px auto;
+    gap: 100px;
+    margin: 20px auto;
     justify-content: center;
 }
 .contenedor-horizontal-2 {
@@ -340,13 +340,23 @@ img{
     justify-content: center;
 }
 /* TAMAÑO PARA LOS GRÁFICOS (Figuras) */
+.grafico{
+    flex: 0 0 600px;
+    margin: 0;
+}
+.grafico img {
+    width: 100%;
+    border: 8px solid #000000; /* El contorno que querías */
+    display: block;
+}
+
 .test-imagen {
-    flex: 0 0 700px;      /* Ajusta este valor (300px) para cambiar el tamaño de los gráficos */
+    flex: 0 0 300px;      /* Ajusta este valor (300px) para cambiar el tamaño de los gráficos */
     margin: 0;
     text-align: center;
 }
 .test-imagen-2 {
-    flex: 0 0 900px;
+    flex: 0 0 800px;
     margin: 0;
     text-align: center;
 }
